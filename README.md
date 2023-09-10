@@ -9,3 +9,30 @@
 - [@guilherme-savio](https://github.com/guilherme-savio)
 - [@higorgoulart](https://github.com/higorgoulart)
 - [@SofiaMartinslv](https://github.com/SofiaMartinslv)
+
+
+### Instalação:
+- Clonar o repositório e instalar o Python 3.10
+- Criar o ambiente virtual:
+  ```bash
+  $ python3 -m venv .env
+  ```
+- Ativar o ambiente virtual.
+  - Linux/MacOS:
+  ```bash
+  $ source env/bin/activate
+  ```
+  - Windows:
+  ```pwsh
+  .env\Scripts\activate
+  ```
+- Instalar os pacotes:
+  ```bash
+  $ pip install -r requirements.txt
+  ```
+
+### Notas:
+- Após a instalação de algum pacote novo, executar o comando abaixo para atribuir o pacote ao requirements:
+  ```bash
+  $ pip freeze > requirements.txt
+  ```
