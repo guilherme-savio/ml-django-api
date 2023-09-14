@@ -25,7 +25,6 @@ SECRET_KEY = 'django-insecure-#jeol^xxt3zm%s99yjb!u#muw2#(fvokhywv$96y_sy2g_67xw
 SPOTIFY_CLIENT_ID = ""
 SPOTIFY_CLIENT_SECRET = ""
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -41,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'GenrePredict.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'assets'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,8 +72,18 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'GenrePredict.wsgi.application'
+STATICFILES_DIRS = (
+    BASE_DIR / 'assets',
+)
 
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'dist/',
+        'STATS_FILE': BASE_DIR / 'webpack-stats.json',
+    }
+}
+
+WSGI_APPLICATION = 'GenrePredict.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
